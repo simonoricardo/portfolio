@@ -1,5 +1,6 @@
 # The directory Mix will write compiled artifacts to.
 /_build/
+/output/
 
 # If you run "mix test --cover", coverage assets end up here.
 /cover/
@@ -24,3 +25,5 @@ simon-*.tar
 
 # Temporary files, for example, from tests.
 /tmp/
+
+.DS_Store
