@@ -3,7 +3,8 @@ import Config
 config :esbuild,
   version: "0.21.3",
   default: [
-    args: ~w(app.js --bundle --target=es2016 --outdir=../output/assets --external:./*),
+    args:
+      ~w(app.js glightbox.js ./css/glightbox.css --bundle --target=es2016 --outdir=../output/assets),
     cd: Path.expand("../assets", __DIR__),
     env: %{"NODE_PATH" => Path.expand("../deps", __DIR__)}
   ]

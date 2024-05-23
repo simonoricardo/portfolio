@@ -21,7 +21,7 @@ defmodule Simon.MixProject do
 
   defp aliases() do
     [
-      "site.build": ["build", "tailwind default --minify", "esbuild default"]
+      "site.build": ["build", "tailwind default --minify", "esbuild default", "files"]
     ]
   end
 
@@ -31,7 +31,8 @@ defmodule Simon.MixProject do
       {:nimble_publisher, "~> 1.1.0"},
       {:phoenix_live_view, "~> 1.0.0-rc.0"},
       {:esbuild, "~> 0.8.1"},
-      {:tailwind, "~> 0.2.2"}
+      {:tailwind, "~> 0.2.2"},
+      {:vix, "~> 0.27.0"}
     ]
   end
 end
