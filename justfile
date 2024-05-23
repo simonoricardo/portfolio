@@ -9,3 +9,6 @@ default:
 
 @dev:
   cd output && npx hostr -p 8000
+
+@deploy: build
+  fly deploy
