@@ -11,3 +11,7 @@ processes = []
     type = "requests"
     soft_limit = 200
     hard_limit = 250
+
+[[statics]]
+  guest_path = "/srv/http/assets"
+  url_prefix = "/assets"

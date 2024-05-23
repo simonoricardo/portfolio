@@ -85,11 +85,7 @@ defmodule Website do
       <div class="mb-8 my-16 scroll-my-40" id="posts">
         <h2 class="my-4">[posts]</h2>
         <ul>
-          <li :for={post <- @posts} class="font-bold text-base xl:text-xl">
-            <a href={post.path}>
-              <span class="font-normal"><%= post.date %></span> -> <%= post.title %>
-            </a>
-          </li>
+          Coming soon!
         </ul>
       </div>
       <div class="mb-8 my-16 xl:text-xl scroll-my-40" id="photos">
@@ -169,7 +165,6 @@ defmodule Website do
     ~H"""
     <.layout>
       <%= raw(@post.body) %>
-      <%= inspect(@post) %>
     </.layout>
     """
   end

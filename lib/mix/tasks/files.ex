@@ -31,6 +31,7 @@ defmodule Mix.Tasks.Files do
   @source_path "../../../assets/photos"
   @destination_path "../../../output/assets/photos"
   @thumbnail_width 1000
+  @full_width 3000
   def photos do
     {micro, :ok} =
       :timer.tc(fn ->
@@ -50,8 +51,11 @@ defmodule Mix.Tasks.Files do
             |> Vix.Vips.Operation.thumbnail!(@thumbnail_width)
             |> Vix.Vips.Image.write_to_file("#{destination_path}/#{index}-tb.webp")
 
-            IO.puts("Copying and renaming #{file} into the bundle...")
-            File.cp("#{source_path}/#{file}", "#{destination_path}/#{index}.webp")
+            IO.puts("Copying and optimizing #{file} into the bundle...")
+
+            "#{source_path}/#{file}"
+            |> Vix.Vips.Operation.thumbnail!(@full_width)
+            |> Vix.Vips.Image.write_to_file("#{destination_path}/#{index}.webp")
           end)
         end
       end)
