@@ -7,11 +7,12 @@ defmodule Mix.Tasks.Files do
   def run(_args) do
     fonts()
     photos()
+    resume()
   end
 
   @source_path "../../../assets/fonts"
   @destination_path "../../../output/assets/fonts"
-  def fonts do
+  defp fonts do
     {micro, :ok} =
       :timer.tc(fn ->
         File.mkdir_p!("./output/assets/fonts")
@@ -32,7 +33,7 @@ defmodule Mix.Tasks.Files do
   @destination_path "../../../output/assets/photos"
   @thumbnail_width 1000
   @full_width 3000
-  def photos do
+  defp photos do
     {micro, :ok} =
       :timer.tc(fn ->
         File.mkdir_p!("./output/assets/photos")
@@ -41,7 +42,7 @@ defmodule Mix.Tasks.Files do
         destination_path = Path.expand(@destination_path, __DIR__)
 
         with {:ok, data} <- File.ls(source_path) do
-          IO.puts("Creating #{length(data)} image thumbnails...")
+          IO.puts("Creating #{length(data)} optimized images and thumbnails...")
 
           data
           |> Enum.sort(:desc)
@@ -50,8 +51,6 @@ defmodule Mix.Tasks.Files do
             "#{source_path}/#{file}"
             |> Vix.Vips.Operation.thumbnail!(@thumbnail_width)
             |> Vix.Vips.Image.write_to_file("#{destination_path}/#{index}-tb.webp")
-
-            IO.puts("Copying and optimizing #{file} into the bundle...")
 
             "#{source_path}/#{file}"
             |> Vix.Vips.Operation.thumbnail!(@full_width)
@@ -62,5 +61,15 @@ defmodule Mix.Tasks.Files do
 
     ms = micro / 1000
     IO.puts("⚡ Images optimized ans transfered in #{ms}ms")
+  end
+
+  @source_path "../../../assets"
+  @destination_path "../../../output/assets"
+  @fr "cv-fr.pdf"
+  defp resume() do
+    source_path = Path.expand(@source_path, __DIR__)
+    destination_path = Path.expand(@destination_path, __DIR__)
+
+    File.cp("#{source_path}/#{@fr}", "#{destination_path}/#{@fr}")
   end
 end

@@ -40,29 +40,30 @@ document.getElementById('contact-form').addEventListener('submit', function(even
   const response = grecaptcha.getResponse();
   if (response.length === 0) return;
 
-  this.submitButton.value = "Sending ..."
-  this.submitButton.classList.add("disabled:bg-zinc-300")
-  this.submitButton.classList.remove("bg-red-300")
-  this.submitButton.disabled = true
+  this.submit_button.innerText = "Sending ..."
+  this.submit_button.classList.add("disabled:bg-zinc-300")
+  this.submit_button.classList.remove("bg-red-300")
+  this.submit_button.disabled = true
   emailjs.sendForm('service_qfwjxll', 'template_sek93ob', this)
     .then(() => {
-      this.submitButton.value = "Success! Email sent!"
-      this.submitButton.classList.remove("disabled:bg-zinc-300", "bg-white", "bg-red-300")
-      this.submitButton.classList.add("bg-green-400")
+      this.submit_button.innerText = "👍🏻Success! Email sent!"
+      this.submit_button.classList.remove("disabled:bg-zinc-300", "bg-white", "bg-red-300")
+      this.submit_button.classList.add("bg-green-400")
     }, (error) => {
-      this.submitButton.value = "Error! Please try again"
-      this.submitButton.classList.remove("disabled:bg-zinc-300", "bg-white")
-      this.submitButton.classList.add("bg-red-300")
-      this.submitButton.disabled = false
+      this.submit_button.innerText = "Error! Please try again"
+      this.submit_button.classList.remove("disabled:bg-zinc-300", "bg-white")
+      this.submit_button.classList.add("bg-red-300")
+      this.submit_button.disabled = false
       grecaptcha.reset()
     });
 });
 
 document.getElementById('reset_button').addEventListener('click', function(event) {
   const form = document.getElementById('contact-form')
-  form.submitButton.disabled = false
-  form.submitButton.classList.add("disabled:bg-zinc-300", "bg-white")
-  form.submitButton.classList.remove("bg-red-300", "bg-green-400")
+  form.submit_button.innerText = "⚡ Send"
+  form.submit_button.disabled = true
+  form.submit_button.classList.add("disabled:bg-zinc-300", "bg-white")
+  form.submit_button.classList.remove("bg-red-300", "bg-green-400")
   grecaptcha.reset()
   form.reset()
 })
