@@ -1,7 +1,23 @@
 <div class="mb-8 my-16 scroll-my-40" id="posts">
   <Components.section_title title="posts" />
   <Components.paragraph>
-    Coming soon!
+      <ul>
+        <% years = Blog.all_posts |> Blog.get_years_with_posts %>
+        <% posts_by_year = Blog.all_posts |> Blog.by_year %>
+        <%= for year <- years do %>
+          <li class="my-2 font-bold text-lg">
+            >> <%= year %>
+          </li>
+          <% posts = posts_by_year[year] %>
+          <%= for post <- posts do %>
+            <li>
+              <a href={post.path} %>
+                <%= post.date %> - <span class="font-bold"><%= post.title %></span>
+              </a>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
   </Components.paragraph>
 </div>
 
