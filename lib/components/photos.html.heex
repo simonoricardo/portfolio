@@ -5,20 +5,41 @@
     It's often said that a picture is worth a thousand words, and a single image can convey so many emotions.
   </Components.paragraph>
   <Components.paragraph>
-    I started my journey with a Nikon D3000 and then upgraded to a Nikon D300. Eventually, I transitioned to the Fuji system.
-    Currently, I own a Fuji X100V and a Fuji XT-10, equipped with a 90mm prime lens, a 55-230mm zoom lens, and the 16-50mm kit lens.
+    I currently own a Fuji X100V and a Fuji XT-10, equipped with a 90mm prime lens, a 55-230mm zoom lens, and the 16-50mm kit lens.
   </Components.paragraph>
   <Components.paragraph>
     There's something unique about Fuji cameras. The way they render JPEGs, the film simulations, and the compact size of their mirrorless models all contribute to the joy of shooting with them.
   </Components.paragraph>
-  <div class="grid grid-cols-auto-fit-300 xl:grid-cols-auto-fit-400 auto-rows-min gap-4 mt-8">
-    <%= for %{photo: photo, thumbnail: thumbnail} <- Photo.all_photos() do %>
-      <a href={photo} class="glightbox" data-type="image" data-effect="fade">
-        <img
-          src={thumbnail}
-          class="object-cover w-full h-72 lg:h-96 xl:h-[32rem] border rounded-md"
-        />
-      </a>
-    <% end %>
+  <Components.paragraph>
+    There's more to life than work. This is a small snippet of what my life looks like outside of work! 😊📷
+  </Components.paragraph>
+  <div class="flex flex-col gap-2" x-data="{ expanded: false }">
+    <div
+      class="grid grid-cols-auto-fit-300 xl:grid-cols-auto-fit-400 auto-rows-min gap-4 mt-8"
+      x-show="expanded"
+      x-collapse.min.400px
+    >
+      <%= for %{photo: photo, thumbnail: thumbnail} <- Photo.all_photos() do %>
+        <a href={photo} class="glightbox" data-type="image" data-effect="fade">
+          <img
+            src={thumbnail}
+            class="object-cover w-full h-72 lg:h-96 xl:h-[32rem] border rounded-md"
+          />
+        </a>
+      <% end %>
+    </div>
+    <button
+      id="show_more_button"
+      type="button"
+      class="mx-auto mt-4 bg-stone-100 text-zinc-700 py-2 px-4 rounded-md w-full xl:w-[40rem] hover:cursor-pointer"
+      @click="expanded = ! expanded"
+    >
+      <span class="" x-show="!expanded">
+        ➕ Show more
+      </span>
+      <span class="" x-show="expanded">
+        ➖ Show less
+      </span>
+    </button>
   </div>
 </div>

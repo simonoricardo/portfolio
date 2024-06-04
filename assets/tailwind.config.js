@@ -14,7 +14,7 @@ module.exports = {
       },
       fontFamily: {
         'mono': ['Source Code Pro'],
-        'sans': ['Anaheim'],
+        'sans': ['Plus Jakarta Sans'],
         'serif': ['Sumana-Regular'],
       }
     }

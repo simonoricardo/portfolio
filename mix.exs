@@ -29,6 +29,7 @@ defmodule Simon.MixProject do
   defp deps do
     [
       {:nimble_publisher, "~> 1.1.0"},
+      {:makeup_elixir, "~> 0.14.0"},
       {:phoenix_live_view, "~> 1.0.0-rc.0"},
       {:esbuild, "~> 0.8.1"},
       {:tailwind, "~> 0.2.2"},

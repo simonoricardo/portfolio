@@ -5,7 +5,7 @@ defmodule Website.Components do
 
   def section_title(assigns) do
     ~H"""
-    <h2 class="my-4">[<%= @title %>]</h2>
+    <h2 class="my-8">| <%= @title %></h2>
     """
   end
 
@@ -13,7 +13,7 @@ defmodule Website.Components do
 
   def paragraph(assigns) do
     ~H"""
-    <p class="tracking-tight text-sm xl:text-lg my-2">
+    <p class="tracking-wide text-sm xl:text-lg my-2">
       <%= render_slot(@inner_block) %>
     </p>
     """
@@ -21,6 +21,7 @@ defmodule Website.Components do
 
   attr(:to, :string, required: true)
   attr(:new_tab, :boolean, default: false)
+  attr(:highlight, :boolean, default: false)
   slot(:inner_block, required: true)
 
   def link(assigns) do
@@ -28,10 +29,23 @@ defmodule Website.Components do
     <a
       href={@to}
       target={if(@new_tab, do: "_blank", else: nil)}
-      class="font-bold inline-block underline"
+      class={[
+        "font-bold inline-block underline",
+        @highlight && "bg-zinc-700 text-stone-50 px-1 rounded-md decoration-stone-50"
+      ]}
     >
       <%= render_slot(@inner_block) %>
     </a>
+    """
+  end
+
+  slot(:inner_block, required: true)
+
+  def highlight(assigns) do
+    ~H"""
+    <span class="font-bold bg-zinc-700 text-stone-50 px-1 rounded-md inline-block">
+      <%= render_slot(@inner_block) %>
+    </span>
     """
   end
 

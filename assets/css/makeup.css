@@ -1,0 +1,302 @@
+.makeup .hll {
+  background-color: #4f424c;
+}
+
+.makeup {
+  color: #e7e9db;
+  background-color: #1f2937;
+}
+
+.makeup .unselectable {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;  
+  -khtml-user-select: none;  
+  -moz-user-select: none; 
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.makeup .bp {
+  color: #e7e9db; 
+
+} 
+
+/* :name_builtin_pseudo */
+.makeup .c {
+  color: #776e71; 
+} 
+
+.makeup .c1 {
+  color: #776e71; 
+} 
+
+/* :comment_single */
+.makeup .ch {
+  color: #776e71; 
+} 
+
+/* :comment_hashbang */
+.makeup .cm {
+  color: #776e71; 
+} 
+
+/* :comment_multiline */
+.makeup .cp {
+  color: #776e71; 
+} 
+
+.makeup .cpf {
+  color: #776e71; 
+} 
+
+.makeup .cs {
+  color: #776e71; 
+} 
+
+.makeup .dl {
+  color: #48b685; 
+} 
+
+.makeup .err {
+  color: #ef6155; 
+} 
+
+.makeup .fm {
+  color: #06b6ef; 
+}
+
+.makeup .gd {
+  color: #ef6155; 
+}
+
+.makeup .ge {
+  font-style: italic; 
+} 
+
+.makeup .gh {
+  color: #e7e9db;
+  font-weight: bold; 
+}
+
+.makeup .gi {
+  color: #48b685; 
+} 
+
+.makeup .gp {
+  color: #776e71; 
+  font-weight: bold; 
+}
+
+.makeup .gs {
+  font-weight: bold; 
+}
+
+.makeup .gu {
+  color: #5bc4bf;
+  font-weight: bold;
+}
+
+.makeup .il {
+  color: #f99b15; 
+}
+
+.makeup .k {
+  color: #815ba4; 
+}
+
+.makeup .kc {
+  color: #815ba4; 
+}
+
+.makeup .kd {
+  color: #815ba4; 
+} 
+
+.makeup .kn {
+  color: #5bc4bf; 
+}
+
+.makeup .kp {
+  color: #815ba4; 
+}
+
+.makeup .kr {
+  color: #815ba4; 
+}
+
+.makeup .kt {
+  color: #fec418; 
+}
+
+.makeup .l {
+  color: #f99b15; 
+
+}
+
+.makeup .ld {
+  color: #f99b15; 
+}
+
+.makeup .m {
+  color: #f99b15; 
+}
+
+.makeup .mb {
+  color: #f99b15; 
+}
+
+.makeup .mf {
+  color: #f99b15;
+}
+.makeup .mh {
+  color: #f99b15; 
+}
+.makeup .mi {
+  color: #f99b15; 
+}
+
+.makeup .mo {
+  color: #f99b15; 
+}
+
+.makeup .n {
+  color: #e7e9db; 
+}
+
+.makeup .na {
+  color: #06b6ef; 
+}
+
+.makeup .nb {
+  color: #e7e9db; 
+}
+
+.makeup .nc {
+  color: #fec418; 
+}
+
+.makeup .nd {
+  color: #5bc4bf;
+}
+
+.makeup .ne {
+  color: #ef6155;
+}
+
+.makeup .nf {
+  color: #06b6ef;
+}
+.makeup .ni {
+  color: #e7e9db;
+}
+
+.makeup .nl {
+  color: #e7e9db;
+}
+
+.makeup .nn {
+  color: #fec418;
+}
+
+.makeup .no {
+  color: #ef6155;
+}
+
+.makeup .nt {
+  color: #5bc4bf;
+}
+
+.makeup .nv {
+  color: #ef6155;
+}
+
+.makeup .nx {
+  color: #06b6ef;
+}
+
+.makeup .o {
+  color: #5bc4bf;
+}
+
+.makeup .ow {
+  color: #5bc4bf;
+}
+
+.makeup .p {
+  color: #e7e9db;
+}
+
+.makeup .py {
+  color: #e7e9db;
+}
+
+.makeup .s {
+  color: #48b685;
+}
+
+.makeup .s1 {
+  color: #48b685;
+}
+
+.makeup .s2 {
+  color: #48b685;
+}
+
+.makeup .sa {
+  color: #48b685;
+}
+
+.makeup .sb {
+  color: #48b685;
+}
+
+.makeup .sc {
+  color: #e7e9db;
+}
+
+.makeup .sd {
+  color: #776e71;
+}
+
+.makeup .se {
+  color: #f99b15;
+}
+
+.makeup .sh {
+  color: #48b685;
+}
+
+.makeup .si {
+  color: #f99b15;
+}
+
+.makeup .sr {
+  color: #48b685;
+}
+
+.makeup .ss {
+  color: #48b685;
+}
+
+.makeup .sx {
+  color: #48b685;
+}
+
+.makeup .sx {
+  color: #48b685;
+}
+
+.makeup .vc {
+  color: #ef6155;
+}
+
+.makeup .vg {
+  color: #ef6155;
+}
+
+.makeup .vi {
+  color: #ef6155;
+}
+.makeup .vm {
+  color: #ef6155;
+}

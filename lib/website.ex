@@ -17,6 +17,7 @@ defmodule Website do
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="stylesheet" href="/assets/app.css" />
         <link rel="stylesheet" href="/assets/css/glightbox.css" />
+        <link rel="stylesheet" href="/assets/css/makeup.css" />
         <script
           type="text/javascript"
           src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
@@ -30,12 +31,16 @@ defmodule Website do
             document.getElementById("submit").disabled = true;
           }
         </script>
-        <script src="https://www.google.com/recaptcha/api.js" async defer>
+        <script defer src="https://www.google.com/recaptcha/api.js" async>
         </script>
         <script type="text/javascript" src="/assets/glightbox.js" />
-        <script type="text/javascript" src="/assets/app.js" defer />
+        <script defer type="text/javascript" src="/assets/app.js" />
+        <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js">
+        </script>
+        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js">
+        </script>
       </head>
-      <body class="base bg-zinc-100 text-zinc-700 font-mono">
+      <body class="base bg-stone-50 text-zinc-700 font-sans tracking-wide">
         <.nav />
         <main class="relative px-8">
           <%= render_slot(@inner_block) %>
@@ -60,7 +65,16 @@ defmodule Website do
   def post(assigns) do
     ~H"""
     <.layout>
-      <%= raw(@post.body) %>
+      <div class="prose mx-auto mt-8">
+        <a href="/#posts" class="underline mb-4 text-sm text-zinc-600">
+          <%= "Go back" %>
+        </a>
+        <hr />
+        <p class="text-sm font-bold italic my-0 mt-4"><%= @post.author %></p>
+        <p class="text-sm italic my-0 mb-4"><%= @post.date %></p>
+        <hr />
+        <%= raw(@post.body) %>
+      </div>
     </.layout>
     """
   end

@@ -8,6 +8,10 @@
     src: url(./fonts/SourceCodePro-VariableFont_wght.ttf);
   }
   @font-face {
+    font-family: "Plus Jakarta Sans";
+    src: url(./fonts/PlusJakartaSans-VariableFont_wght.ttf);
+  }
+  @font-face {
     font-family: "Anaheim";
     src: url(./fonts/Anaheim-Regular.ttf);
   }
@@ -24,22 +28,22 @@
 @layer components {
   .base {
     h1 {
-      @apply font-bold text-4xl xl:text-6xl font-mono text-zinc-700 tracking-wide; 
+      @apply font-bold text-4xl xl:text-6xl font-serif text-zinc-700 tracking-wide; 
     }
     h2 {
-      @apply font-bold text-3xl xl:text-5xl font-mono text-zinc-700 tracking-wide;
+      @apply font-bold text-3xl xl:text-5xl font-serif text-zinc-700 tracking-wide;
     }
     h3 {
-      @apply font-bold text-2xl xl:text-4xl font-mono text-zinc-700 tracking-wide;
+      @apply font-bold text-2xl xl:text-4xl font-serif text-zinc-700 tracking-wide;
     }
     h4 {
-      @apply font-bold text-xl xl:text-3xl font-mono text-zinc-700 tracking-wide;
+      @apply font-bold text-xl xl:text-3xl font-serif text-zinc-700 tracking-wide;
     }
     h5 {
-      @apply font-bold text-lg xl:text-2xl font-mono text-zinc-700 tracking-wide;
+      @apply font-bold text-lg xl:text-2xl font-serif text-zinc-700 tracking-wide;
     }
     h6 {
-      @apply font-bold font-mono xl:text-xl text-zinc-700 tracking-wide;
+      @apply font-bold font-serif xl:text-xl text-zinc-700 tracking-wide;
     }
   }
 }
