@@ -11,3 +11,5 @@ If you would to run this locally, you will need a few dependencies.
 - Finally, `node` for serving your static files. You can use something else but you will need to modify the `justfile` to reflect what you chose.
 
 Once your deps installed, run `mix deps.get` within the folder. Then running `just start` should build the files and serve them on port `8000`.
+
+Note: Source files for photos are a submodule. If you want to use your own photos, simply add your own `photos` folder.
