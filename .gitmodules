@@ -1,0 +1,3 @@
+[submodule "assets/photos"]
+	path = assets/photos
+	url = https://github.com/simonoricardo/photos_portfolio
