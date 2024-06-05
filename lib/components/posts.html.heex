@@ -2,8 +2,8 @@
   <Components.section_title title="posts" />
   <Components.paragraph>
     <ul>
-      <% years = Blog.all_posts() |> Blog.get_years_with_posts() %>
-      <% posts_by_year = Blog.all_posts() |> Blog.by_year() %>
+      <% years = @posts |> Blog.get_years_with_posts() %>
+      <% posts_by_year = @posts |> Blog.by_year() %>
       <%= for year <- years do %>
         <li class="my-2 font-bold text-lg">
           <Components.highlight><%= year %></Components.highlight>

@@ -23,6 +23,10 @@
     font-family: "Sumana-Bold";
     src: url(./fonts/Sumana-Bold.ttf);
   }
+  @font-face {
+    font-family: "Open Sans";
+    src: url(./fonts/OpenSans-VariableFont_wdth,wght.ttf);
+  }
 }
 
 @layer components {
@@ -44,6 +48,9 @@
     }
     h6 {
       @apply font-bold font-serif xl:text-xl text-zinc-700 tracking-wide;
+    }
+    hr {
+      @apply my-5
     }
   }
 }

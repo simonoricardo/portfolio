@@ -1,5 +1,34 @@
 defmodule Website.Components do
   use Phoenix.Component
+  import Phoenix.HTML
+
+  slot(:inner_block, required: true)
+
+  def nav_element(assigns) do
+    ~H"""
+    <li class="px-1 hover:bg-zinc-700 hover:text-stone-50 hover:rounded-md hover:rotate-6 hover:scale-110 transition-all">
+      <%= render_slot(@inner_block) %>
+    </li>
+    """
+  end
+
+  attr(:post, :map, required: true)
+
+  def post(assigns) do
+    ~H"""
+    <Website.layout>
+      <a href="/#posts" class="underline mb-0 text-sm text-zinc-600">
+        <%= "Go back" %>
+      </a>
+      <div class="prose container max-w-none max-w-screen-sm lg:max-w-screen-lg xl:max-w-screen-xl mx-auto my-8 py-4 px-4 lg:px-16 xl:px-32 rounded-lg bg-stone-50 border">
+        <p class="text-sm font-bold italic my-0 mt-2"><%= @post.author %></p>
+        <p class="text-sm italic my-0 mb-4"><%= @post.date %></p>
+        <hr />
+        <%= raw(@post.body) %>
+      </div>
+    </Website.layout>
+    """
+  end
 
   attr(:title, :string, required: true)
 
@@ -60,7 +89,7 @@ defmodule Website.Components do
       id="submit"
       name={@name}
       type="submit"
-      class="bg-white text-zinc-700 py-2 px-4 rounded-md disabled:bg-zinc-300 w-full xl:w-[40rem] hover:cursor-pointer disabled:cursor-not-allowed"
+      class="bg-stone-100 border text-zinc-700 py-2 px-4 rounded-md disabled:bg-zinc-300 w-full xl:w-[40rem] hover:cursor-pointer disabled:cursor-not-allowed"
       disabled={@disabled}
     >
       <%= render_slot(@inner_block) %>
@@ -73,7 +102,7 @@ defmodule Website.Components do
     <button
       id={@name}
       type="button"
-      class="bg-white text-zinc-700 py-2 px-4 rounded-md disabled:bg-zinc-300 w-full xl:w-[40rem] hover:cursor-pointer disabled:cursor-not-allowed"
+      class="bg-stone-100 border text-zinc-700 py-2 px-4 rounded-md disabled:bg-zinc-300 w-full xl:w-[40rem] hover:cursor-pointer disabled:cursor-not-allowed"
       disabled={@disabled}
     >
       <%= render_slot(@inner_block) %>
@@ -101,31 +130,19 @@ defmodule Website.Components do
 
   defp input(%{type: "text"} = assigns) do
     ~H"""
-    <input
-      id={@name}
-      name={@name}
-      type="text"
-      class="py-2 px-4 w-full rounded-sm"
-      required={@required}
-    />
+    <input id={@name} name={@name} type="text" class={input_classes()} required={@required} />
     """
   end
 
   defp input(%{type: "email"} = assigns) do
     ~H"""
-    <input
-      id={@name}
-      name={@name}
-      type="email"
-      class="py-2 px-4 w-full rounded-sm"
-      required={@required}
-    />
+    <input id={@name} name={@name} type="email" class={input_classes()} required={@required} />
     """
   end
 
   defp input(%{type: "text_area"} = assigns) do
     ~H"""
-    <textarea id={@name} name={@name} class="py-2 px-4 h-72 w-full rounded-sm" required={@required} />
+    <textarea id={@name} name={@name} class={[input_classes(), "h-72"]} required={@required} />
     """
   end
 
@@ -137,4 +154,6 @@ defmodule Website.Components do
     <label class="w-5/12" for={@name}><%= render_slot(@inner_block) %></label>
     """
   end
+
+  defp input_classes, do: ~w(py-2 px-4 w-full rounded-sm border)
 end

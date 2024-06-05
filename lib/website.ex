@@ -1,9 +1,7 @@
 defmodule Website do
   use Phoenix.Component
-  import Phoenix.HTML
 
   alias Website.Blog
-  alias Website.Photo
   alias Website.Components
   alias Website.Icons
 
@@ -40,7 +38,7 @@ defmodule Website do
         <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js">
         </script>
       </head>
-      <body class="base bg-stone-50 text-zinc-700 font-sans tracking-wide">
+      <body class="base bg-stone-50 text-zinc-700 font-sans tracking-wide bg-[url('/assets/dot-grid.png')] bg-repeat">
         <.nav />
         <main class="relative px-8">
           <%= render_slot(@inner_block) %>
@@ -55,53 +53,10 @@ defmodule Website do
     <.layout>
       <.intro />
       <.about />
-      <.posts />
-      <.photos />
+      <.posts posts={@posts} />
+      <.photos photos={@photos} />
       <.contact_form />
     </.layout>
     """
-  end
-
-  def post(assigns) do
-    ~H"""
-    <.layout>
-      <div class="prose mx-auto mt-8">
-        <a href="/#posts" class="underline mb-4 text-sm text-zinc-600">
-          <%= "Go back" %>
-        </a>
-        <hr />
-        <p class="text-sm font-bold italic my-0 mt-4"><%= @post.author %></p>
-        <p class="text-sm italic my-0 mb-4"><%= @post.date %></p>
-        <hr />
-        <%= raw(@post.body) %>
-      </div>
-    </.layout>
-    """
-  end
-
-  @output_dir "./output"
-  def build() do
-    File.mkdir_p!(@output_dir)
-    posts = Blog.all_posts()
-
-    render_file("index.html", index(%{posts: posts}))
-
-    for post <- posts do
-      dir = Path.dirname(post.path)
-
-      if dir != "." do
-        File.mkdir_p!(Path.join([@output_dir, dir]))
-      end
-
-      render_file(post.path, post(%{post: post}))
-    end
-
-    :ok
-  end
-
-  defp render_file(path, rendered) do
-    safe = Phoenix.HTML.Safe.to_iodata(rendered)
-    output = Path.join([@output_dir, path])
-    File.write!(output, safe)
   end
 end

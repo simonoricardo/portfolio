@@ -6,7 +6,7 @@ defmodule Mix.Tasks.Build do
   def run(_args) do
     {micro, :ok} =
       :timer.tc(fn ->
-        Website.build()
+        Website.Build.run()
       end)
 
     ms = micro / 1000

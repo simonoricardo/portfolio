@@ -1,21 +1,13 @@
-# Simon
+# Personal portfolio / blog
 
-**TODO: Add description**
+This is the repo of my personal portfolio, currently hosted on [Fly](https:www.fly.io) and available [here](https://simonricard.com)
 
-## Installation
+## Local installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `simon` to your list of dependencies in `mix.exs`:
+If you would to run this locally, you will need a few dependencies.
 
-```elixir
-def deps do
-  [
-    {:simon, "~> 0.1.0"}
-  ]
-end
-```
+- First, you will Elixir and Erlang (I used 1.16 in this repo but an older version could also work).
+- You will also need [just](https://github.com/casey/just) to run the commands.
+- Finally, `node` for serving your static files. You can use something else but you will need to modify the `justfile` to reflect what you chose.
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/simon>.
-
+Once your deps installed, run `mix deps.get` within the folder. Then running `just start` should build the files and serve them on port `8000`.

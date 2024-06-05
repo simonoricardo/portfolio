@@ -19,7 +19,7 @@
       x-show="expanded"
       x-collapse.min.400px
     >
-      <%= for %{photo: photo, thumbnail: thumbnail} <- Photo.all_photos() do %>
+      <%= for %{photo: photo, thumbnail: thumbnail} <- @photos do %>
         <a href={photo} class="glightbox" data-type="image" data-effect="fade">
           <img
             src={thumbnail}
@@ -31,7 +31,7 @@
     <button
       id="show_more_button"
       type="button"
-      class="mx-auto mt-4 bg-stone-100 text-zinc-700 py-2 px-4 rounded-md w-full xl:w-[40rem] hover:cursor-pointer"
+      class="mx-auto mt-4 bg-stone-100 border text-zinc-700 py-2 px-4 rounded-md w-full xl:w-[40rem] hover:cursor-pointer"
       @click="expanded = ! expanded"
     >
       <span class="" x-show="!expanded">

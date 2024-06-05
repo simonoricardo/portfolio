@@ -1,4 +1,4 @@
-<nav class="pt-4 mb-8 pb-6">
+<nav class="pt-4 mb-8 pb-6 bg-stone-50 border-b">
   <div class="flex-col md:flex-row flex items-center justify-between px-8">
     <div>
       <p id="name" class="font-bold font-mono text-2xl xl:text-4xl">simon ricard</p>
@@ -8,14 +8,19 @@
         <li>aviation</li>
       </ul>
     </div>
-    <ul class="font-mono flex mt-4 md:mt-0 xl:text-xl">
-      <li><a href="#about">about</a></li>
-      <li>.</li>
-      <li><a href="#posts">posts</a></li>
-      <li>.</li>
-      <li><a href="#photos">photos</a></li>
-      <li>.</li>
-      <li><a href="#contact-form">contact</a></li>
+    <ul class="font-bold flex mt-4 md:mt-0 xl:text-xl gap-4">
+      <Components.nav_element>
+        <a href="#about">about</a>
+      </Components.nav_element>
+      <Components.nav_element>
+        <a href="#posts">posts</a>
+      </Components.nav_element>
+      <Components.nav_element>
+        <a href="#photos">photos</a>
+      </Components.nav_element>
+      <Components.nav_element>
+        <a href="#contact-form">contact</a>
+      </Components.nav_element>
     </ul>
   </div>
 </nav>
