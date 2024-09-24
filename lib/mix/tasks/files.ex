@@ -47,14 +47,18 @@ defmodule Mix.Tasks.Files do
           data
           |> Enum.sort(:desc)
           |> Enum.with_index()
-          |> Enum.each(fn {file, index} ->
-            "#{source_path}/#{file}"
-            |> Vix.Vips.Operation.thumbnail!(@thumbnail_width)
-            |> Vix.Vips.Image.write_to_file("#{destination_path}/#{index}-tb.webp")
+          |> Enum.each(fn
+            {".git", _} ->
+              nil
 
-            "#{source_path}/#{file}"
-            |> Vix.Vips.Operation.thumbnail!(@full_width)
-            |> Vix.Vips.Image.write_to_file("#{destination_path}/#{index}.webp")
+            {file, index} ->
+              "#{source_path}/#{file}"
+              |> Vix.Vips.Operation.thumbnail!(@thumbnail_width)
+              |> Vix.Vips.Image.write_to_file("#{destination_path}/#{index}-tb.webp")
+
+              "#{source_path}/#{file}"
+              |> Vix.Vips.Operation.thumbnail!(@full_width)
+              |> Vix.Vips.Image.write_to_file("#{destination_path}/#{index}.webp")
           end)
         end
       end)
@@ -66,10 +70,12 @@ defmodule Mix.Tasks.Files do
   @source_path "../../../assets"
   @destination_path "../../../output/assets"
   @fr "cv-fr.pdf"
+  @en "cv-en.pdf"
   defp resume() do
     source_path = Path.expand(@source_path, __DIR__)
     destination_path = Path.expand(@destination_path, __DIR__)
 
     File.cp("#{source_path}/#{@fr}", "#{destination_path}/#{@fr}")
+    File.cp("#{source_path}/#{@en}", "#{destination_path}/#{@en}")
   end
 end

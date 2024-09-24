@@ -1,5 +1,10 @@
-<div class="mb-8 my-16 scroll-my-40" id="posts">
+<section class="my-24 scroll-mt-32" id="posts">
   <Components.section_title title="posts" />
+  <Components.paragraph class="my-8">
+    I sometimes like to ramble about tech stuff or other matters.
+    So I might write some stuff here as a form of thoughts journal.
+    If a headline picks your interest, then read on!
+  </Components.paragraph>
   <Components.paragraph>
     <ul>
       <% years = @posts |> Blog.get_years_with_posts() %>
@@ -20,4 +25,4 @@
       <% end %>
     </ul>
   </Components.paragraph>
-</div>
+</section>

@@ -1,26 +1,28 @@
-<form id="contact-form" class="flex flex-col items-start gap-4 mb-8 my-16 xl:text-xl scroll-my-40">
-  <Components.section_title title="contact me" />
-  <Components.field name="user_name" type="text" required>
-    Name
-  </Components.field>
-  <Components.field name="user_email" type="email" required>
-    Email
-  </Components.field>
-  <Components.field name="message" type="text_area" required>
-    Message
-  </Components.field>
-  <Components.button name="submit_button" type="submit" disabled>
-    ⚡ Send
-  </Components.button>
-  <Components.button name="reset_button" type="button">
-    🗑️ Reset
-  </Components.button>
+<section id="contact" class="scroll-mt-24">
+  <form id="contact-form" class="flex flex-col items-start gap-4 mb-8 my-16 xl:text-xl element">
+    <Components.section_title title="contact me" />
+    <Components.field name="user_name" type="text" required>
+      Name
+    </Components.field>
+    <Components.field name="user_email" type="email" required>
+      Email
+    </Components.field>
+    <Components.field name="message" type="text_area" required>
+      Message
+    </Components.field>
+    <Components.button name="submit_button" type="submit" disabled>
+      ⚡ Send
+    </Components.button>
+    <Components.button name="reset_button" type="button">
+      🗑️ Reset
+    </Components.button>
 
-  <div
-    class="g-recaptcha"
-    data-sitekey="6LfEWOYpAAAAAMfsgENxMDhAGI3MO9LAs9niHKb-"
-    data-callback="enableBtn"
-    data-expired-callback="disableBtn"
-  >
-  </div>
-</form>
+    <div
+      class="g-recaptcha"
+      data-sitekey="6LfEWOYpAAAAAMfsgENxMDhAGI3MO9LAs9niHKb-"
+      data-callback="enableBtn"
+      data-expired-callback="disableBtn"
+    >
+    </div>
+  </form>
+</section>
