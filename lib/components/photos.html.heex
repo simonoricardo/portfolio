@@ -1,4 +1,4 @@
-<div class="mb-8 my-16 xl:text-xl scroll-my-40" id="photos">
+<section class="my-24 scroll-mt-28 xl:text-xl" id="photos">
   <Components.section_title title="photos" />
   <Components.paragraph>
     I have been passionate about photography since childhood. I cherish the ability to capture timeless moments and present them as I truly remember them.
@@ -22,6 +22,7 @@
       <%= for %{photo: photo, thumbnail: thumbnail} <- @photos do %>
         <a href={photo} class="glightbox" data-type="image" data-effect="fade">
           <img
+            loading="lazy"
             src={thumbnail}
             class="object-cover w-full h-72 lg:h-96 xl:h-[32rem] border rounded-md"
           />
@@ -42,4 +43,4 @@
       </span>
     </button>
   </div>
-</div>
+</section>

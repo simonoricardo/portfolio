@@ -4,16 +4,62 @@
   });
 })();
 
+let activeElement = null;
+
+const applyClasses = (sectionTitle, navElement) => {
+  const classes = "bg-zinc-700 text-stone-50 rounded-md rotate-6 scale-110".split(' ');
+
+  if (sectionTitle.isIntersecting && sectionTitle.intersectionRatio >= 0.6) {
+    if (activeElement) {
+      activeElement.classList.remove(...classes)
+    }
+
+    activeElement = navElement
+    activeElement.classList.add(...classes)
+  }
+}
+
+
+const io = new IntersectionObserver((sections) => {
+  sections.forEach((sections) => {
+    switch (sections.target.id) {
+      case "about":
+        applyClasses(sections, document.querySelector("#about-nav"));
+        break;
+
+      case "photos":
+        applyClasses(sections, document.querySelector("#photos-nav"));
+        break;
+
+      case "posts":
+        applyClasses(sections, document.querySelector("#posts-nav"));
+        break;
+
+      case "contact":
+        applyClasses(sections, document.querySelector("#contact-nav"));
+        break;
+    }
+  });
+}, { rootMargin: "100px 0px 0px 0px", threshold: 0.8 });
+
+const elements = document.querySelectorAll('section');
+
+elements.forEach((el) => {
+  io.observe(el);
+});
+
+
+const ACTIVE_CLASSES = "sticky top-0 z-50".split(' ')
+
 const controlNavbar = () => {
   if (typeof window !== 'undefined') {
     const nav = document.querySelector('nav')
     const navHeight = nav.getBoundingClientRect().height
-    const classes = "sticky top-0 z-50".split(' ')
 
     if (window.scrollY > navHeight) {
-      nav.classList.add(...classes)
+      nav.classList.add(...ACTIVE_CLASSES)
     } else {
-      nav.classList.remove(...classes)
+      nav.classList.remove(...ACTIVE_CLASSES)
     }
 
   }

@@ -7,6 +7,9 @@ defmodule Website do
 
   embed_templates("components/*")
 
+  attr(:active, :atom, default: :none)
+  slot(:inner_block, required: true)
+
   def layout(assigns) do
     ~H"""
     <html class="scroll-smooth" lang="en">
@@ -39,7 +42,7 @@ defmodule Website do
         </script>
       </head>
       <body class="base bg-stone-50 text-zinc-700 font-sans tracking-wide bg-[url('/assets/dot-grid.png')] bg-repeat">
-        <.nav />
+        <.nav active={@active} />
         <main class="relative px-8">
           <%= render_slot(@inner_block) %>
         </main>

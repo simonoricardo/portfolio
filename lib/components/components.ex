@@ -2,11 +2,19 @@ defmodule Website.Components do
   use Phoenix.Component
   import Phoenix.HTML
 
+  attr(:id, :string, required: true)
+  attr(:active, :boolean, default: false)
   slot(:inner_block, required: true)
 
   def nav_element(assigns) do
     ~H"""
-    <li class="px-1 hover:bg-zinc-700 hover:text-stone-50 hover:rounded-md hover:rotate-6 hover:scale-110 transition-all">
+    <li
+      id={@id}
+      class={[
+        "px-1 hover:bg-zinc-700 hover:text-stone-50 hover:rounded-md hover:rotate-6 hover:scale-110 transition-all",
+        @active && "bg-zinc-700 text-stone-50 rounded-md rotate-6 scale-110"
+      ]}
+    >
       <%= render_slot(@inner_block) %>
     </li>
     """
@@ -16,12 +24,12 @@ defmodule Website.Components do
 
   def post(assigns) do
     ~H"""
-    <Website.layout>
+    <Website.layout active={:posts}>
       <a href="/#posts" class="underline mb-0 text-sm text-zinc-600">
         <%= "Go back" %>
       </a>
       <div class="prose container max-w-none max-w-screen-sm lg:max-w-screen-lg xl:max-w-screen-xl mx-auto my-8 py-4 px-4 lg:px-16 xl:px-32 rounded-lg bg-stone-50 border">
-        <p class="text-sm font-bold italic my-0 mt-2"><%= @post.author %></p>
+        <p class="text-md font-bold italic my-0 mt-2"><%= @post.author %></p>
         <p class="text-sm italic my-0 mb-4"><%= @post.date %></p>
         <hr />
         <%= raw(@post.body) %>
@@ -34,15 +42,18 @@ defmodule Website.Components do
 
   def section_title(assigns) do
     ~H"""
-    <h2 class="my-8">| <%= @title %></h2>
+    <h2 class="my-8">
+      | <%= @title %>
+    </h2>
     """
   end
 
+  attr(:class, :string, default: "")
   slot(:inner_block, required: true)
 
   def paragraph(assigns) do
     ~H"""
-    <p class="tracking-wide text-sm xl:text-lg my-2">
+    <p class={["tracking-wide text-sm xl:text-lg my-2", @class]}>
       <%= render_slot(@inner_block) %>
     </p>
     """
