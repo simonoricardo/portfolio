@@ -6,37 +6,37 @@
 
 let activeElement = null;
 
-const applyClasses = (sectionTitle, navElement) => {
-  const classes = "bg-zinc-700 text-stone-50 rounded-md rotate-6 scale-110".split(' ');
+const applyClasses = (section, navElement) => {
+  const navClasses = "bg-zinc-700 text-stone-50 rounded-md rotate-6 scale-110".split(' ');
 
-  if (sectionTitle.isIntersecting && sectionTitle.intersectionRatio >= 0.6) {
+  if (section.isIntersecting && section.intersectionRatio >= 0.6) {
     if (activeElement) {
-      activeElement.classList.remove(...classes)
+      activeElement.classList.remove(...navClasses)
     }
 
     activeElement = navElement
-    activeElement.classList.add(...classes)
+    activeElement.classList.add(...navClasses)
   }
 }
 
 
 const io = new IntersectionObserver((sections) => {
-  sections.forEach((sections) => {
-    switch (sections.target.id) {
+  sections.forEach((section) => {
+    switch (section.target.id) {
       case "about":
-        applyClasses(sections, document.querySelector("#about-nav"));
+        applyClasses(section, document.querySelector("#about-nav"));
         break;
 
       case "photos":
-        applyClasses(sections, document.querySelector("#photos-nav"));
+        applyClasses(section, document.querySelector("#photos-nav"));
         break;
 
       case "posts":
-        applyClasses(sections, document.querySelector("#posts-nav"));
+        applyClasses(section, document.querySelector("#posts-nav"));
         break;
 
       case "contact":
-        applyClasses(sections, document.querySelector("#contact-nav"));
+        applyClasses(section, document.querySelector("#contact-nav"));
         break;
     }
   });
@@ -48,25 +48,22 @@ elements.forEach((el) => {
   io.observe(el);
 });
 
+document.querySelector('main').addEventListener('scroll', fadeIn); 
+function fadeIn() {
+  elements.forEach((el) => {
+    const dist = el.getBoundingClientRect().top - window.innerHeight + 20;
 
-const ACTIVE_CLASSES = "sticky top-0 z-50".split(' ')
-
-const controlNavbar = () => {
-  if (typeof window !== 'undefined') {
-    const nav = document.querySelector('nav')
-    const navHeight = nav.getBoundingClientRect().height
-
-    if (window.scrollY > navHeight) {
-      nav.classList.add(...ACTIVE_CLASSES)
+    if (dist < -100) {
+        el.classList.add("fade-in");
     } else {
-      nav.classList.remove(...ACTIVE_CLASSES)
+        el.classList.remove("fade-in");
     }
 
-  }
-};
-controlNavbar();
+  }); 
+}
 
-window.addEventListener('scroll', controlNavbar);
+fadeIn();
+
 
 const lightbox = GLightbox({
   touchNavigation: true,

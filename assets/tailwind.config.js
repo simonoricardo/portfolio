@@ -16,7 +16,7 @@ module.exports = {
         'mono': ['Source Code Pro'],
         'sans': ['Open Sans'],
         'serif': ['Sumana-Regular'],
-      }
+      },
     }
   },
   plugins: [

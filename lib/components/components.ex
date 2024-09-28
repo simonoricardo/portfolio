@@ -42,8 +42,8 @@ defmodule Website.Components do
 
   def section_title(assigns) do
     ~H"""
-    <h2 class="my-8">
-      | <%= @title %>
+    <h2 class="inline-block mb-8 bg-zinc-700 text-stone-50 px-2 -rotate-3 rounded-md">
+      <%= @title %>
     </h2>
     """
   end
@@ -53,7 +53,7 @@ defmodule Website.Components do
 
   def paragraph(assigns) do
     ~H"""
-    <p class={["tracking-wide text-sm xl:text-lg my-2", @class]}>
+    <p class={["tracking-wide text-lg xl:text-xl my-4", @class]}>
       <%= render_slot(@inner_block) %>
     </p>
     """
@@ -167,4 +167,14 @@ defmodule Website.Components do
   end
 
   defp input_classes, do: ~w(py-2 px-4 w-full rounded-sm border)
+
+  slot(:inner_block, required: true)
+
+  def text_background(assigns) do
+    ~H"""
+    <p class="hidden font-bold font-serif inline-block text-stone-50 text-[12rem] [text-shadow:0_0_1px_#a1a1aa,_0_0_1px_#a1a1aa,_0_0_1px_#a1a1aa,_0_0_1px_#a1a1aa] absolute z-[-1] bottom-24 right-8 lg:visible">
+      <%= render_slot(@inner_block) %>
+    </p>
+    """
+  end
 end

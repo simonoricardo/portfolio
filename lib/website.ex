@@ -12,7 +12,7 @@ defmodule Website do
 
   def layout(assigns) do
     ~H"""
-    <html class="scroll-smooth" lang="en">
+    <html class="h-full scroll-smooth" lang="en">
       <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -41,9 +41,9 @@ defmodule Website do
         <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js">
         </script>
       </head>
-      <body class="base bg-stone-50 text-zinc-700 font-sans tracking-wide bg-[url('/assets/dot-grid.png')] bg-repeat">
+      <body class="base bg-stone-50 h-full overflow-hidden text-zinc-700 font-sans tracking-wide bg-[url('/assets/dot-grid.png')] bg-repeat">
         <.nav active={@active} />
-        <main class="relative px-8">
+        <main class="flex flex-col gap-12 h-full overflow-scroll">
           <%= render_slot(@inner_block) %>
         </main>
       </body>

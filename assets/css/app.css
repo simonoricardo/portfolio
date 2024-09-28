@@ -32,25 +32,45 @@
 @layer components {
   .base {
     h1 {
-      @apply font-bold text-4xl xl:text-6xl font-serif text-zinc-700 tracking-wide; 
+      @apply font-bold text-4xl lg:text-6xl font-serif tracking-wide; 
     }
     h2 {
-      @apply font-bold text-3xl xl:text-5xl font-serif text-zinc-700 tracking-wide;
+      @apply font-bold text-3xl lg:text-5xl font-serif tracking-wide;
     }
     h3 {
-      @apply font-bold text-2xl xl:text-4xl font-serif text-zinc-700 tracking-wide;
+      @apply font-bold text-2xl lg:text-4xl font-serif tracking-wide;
     }
     h4 {
-      @apply font-bold text-xl xl:text-3xl font-serif text-zinc-700 tracking-wide;
+      @apply font-bold text-xl lg:text-3xl font-serif tracking-wide;
     }
     h5 {
-      @apply font-bold text-lg xl:text-2xl font-serif text-zinc-700 tracking-wide;
+      @apply font-bold text-lg lg:text-2xl font-serif tracking-wide;
     }
     h6 {
-      @apply font-bold font-serif xl:text-xl text-zinc-700 tracking-wide;
+      @apply font-bold font-serif lg:text-xl tracking-wide;
     }
     hr {
       @apply my-5
     }
   }
+  
+  .faded {
+    /*     transform: translateY(50px) rotate(-5deg) translateZ(0); */
+    /* transition-delay: .3s; */
+    /* transition: .4s; */
+    /* opacity: 0; */
+
+    @apply translate-y-5 -rotate-6 delay-300 duration-500 opacity-0 transition-all
+  }
+
+  .fade-in {
+    @apply opacity-100 translate-y-0 rotate-0 transition-all
+  }
 }
+
+
+/* .inView { */
+/*     opacity: 1; */
+/*     -webkit-transform: translateY(0px) rotate(0deg) translateZ(0); */
+/*     transform: translateY(0px) rotate(0deg) translateZ(0); */
+/* } */

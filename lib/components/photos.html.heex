@@ -1,4 +1,4 @@
-<section class="my-24 scroll-mt-28 xl:text-xl" id="photos">
+<section class="scroll-mt-28 px-8 relative faded xl:text-xl" id="photos">
   <Components.section_title title="photos" />
   <Components.paragraph>
     I have been passionate about photography since childhood. I cherish the ability to capture timeless moments and present them as I truly remember them.
@@ -17,7 +17,7 @@
     <div
       class="grid grid-cols-auto-fit-300 xl:grid-cols-auto-fit-400 auto-rows-min gap-4 mt-8"
       x-show="expanded"
-      x-collapse.min.400px
+      x-collapse.min.250px
     >
       <%= for %{photo: photo, thumbnail: thumbnail} <- @photos do %>
         <a href={photo} class="glightbox" data-type="image" data-effect="fade">
@@ -43,4 +43,7 @@
       </span>
     </button>
   </div>
+  <Components.text_background>
+    photos
+  </Components.text_background>
 </section>
